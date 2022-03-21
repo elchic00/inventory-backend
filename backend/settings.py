@@ -137,10 +137,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Set cors url for running react
+# Set cors url for running react together.
 CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000',
-     'http://0.0.0.0:3306'
+     'https://main.d16vfptavu3emi.amplifyapp.com',
 ]
 
 # Configure Django App for Heroku.
