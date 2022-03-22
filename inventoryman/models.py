@@ -20,7 +20,7 @@ class Business(models.Model):
         unique_together = (('name','idbusiness'),)
 
     def __str__(self):
-        return self.name
+        return f"ID: {self.idbusiness} | Name: {self.name}"
 
 
 class Item(models.Model):
@@ -39,7 +39,7 @@ class Item(models.Model):
         db_table = 'item'
 
     def __str__(self):
-        return self.item_name
+        return f"ID:{self.iditem} | Name: {self.item_name}"
 
 
 class Location(models.Model):
@@ -54,4 +54,4 @@ class Location(models.Model):
         unique_together = (('street', 'name'),)
 
     def __str__(self):
-        return self.street
+        return f"Nickname: {self.name} | Street: {self.street}"
