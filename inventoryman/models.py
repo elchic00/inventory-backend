@@ -11,7 +11,7 @@ from django.db import models
 class Business(models.Model):
     idbusiness = models.AutoField(primary_key=True)
     name = models.CharField(max_length=45)
-    loc_street_name = models.ForeignKey('Location', default ='None', on_delete = models.DO_NOTHING, db_column='loc_street_name')
+    location_name = models.ForeignKey('Location', default ='None', on_delete = models.DO_NOTHING, db_column='location_name')
     currency = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
@@ -26,8 +26,8 @@ class Business(models.Model):
 class Item(models.Model):
     iditem = models.AutoField(primary_key=True)
     item_name = models.CharField(max_length=45)
-    loc_street_name = models.ForeignKey('Location', models.DO_NOTHING, db_column='loc_street_name', blank=True, null=True)
-    idbusiness = models.ForeignKey('Business', models.DO_NOTHING, db_column='idbusiness', blank=True, null=True)
+    location_name = models.ForeignKey('Location', models.SET_NULL, db_column='location_name', blank=True, null=True)
+    idbusiness = models.ForeignKey('Business', models.CASCADE, db_column='idbusiness', blank=True, null=True)
     item_count = models.IntegerField()
     picture = models.CharField(max_length=45, blank=True, null=True)
     sku = models.CharField(unique=True, max_length=45, blank=True, null=True)

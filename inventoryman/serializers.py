@@ -9,11 +9,11 @@ class LocationSerializer(serializers.ModelSerializer):
 class BusinessSerializer(serializers.ModelSerializer):
     class Meta:
         model = Business
-        fields = ('idbusiness', 'name', 'loc_street_name', 'currency')
+        fields = ('idbusiness', 'name', 'location_name', 'currency')
 
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
-        fields = ('iditem', 'item_name', 'loc_street_name', 'idbusiness','item_count','picture','sku','expire','price')
+        fields = ('iditem', 'item_name', 'location_name', 'idbusiness','item_count','picture','sku','expire','price')
 
 

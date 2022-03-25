@@ -15,4 +15,22 @@ class Migration(migrations.Migration):
             name='price',
             field=models.IntegerField(blank=True, null=True),
         ),
+              migrations.RemoveField(
+            model_name='business',
+            name='loc_street_name',
+        ),
+        migrations.RemoveField(
+            model_name='item',
+            name='loc_street_name',
+        ),
+        migrations.AddField(
+            model_name='business',
+            name='location_name',
+            field=models.ForeignKey(db_column='location_name', default='None', on_delete=models.deletion.SET_NULL, to='inventoryman.location'),
+        ),
+        migrations.AddField(
+            model_name='item',
+            name='location_name',
+            field=models.ForeignKey(blank=True, db_column='location_name', null=True, on_delete=models.deletion.SET_NULL, to='inventoryman.location'),
+        ),
     ]
