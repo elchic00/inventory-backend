@@ -11,7 +11,7 @@ from django.db import models
 class Business(models.Model):
     idbusiness = models.AutoField(primary_key=True)
     name = models.CharField(max_length=45)
-    location_name = models.ForeignKey('Location', default ='None', on_delete = models.DO_NOTHING, db_column='location_name')
+    location_name = models.CharField(max_length=45)
     currency = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
@@ -43,7 +43,7 @@ class Item(models.Model):
 
 
 class Location(models.Model):
-    name = models.CharField(max_length=45)
+    name = models.CharField(max_length=45, blank=True, null=True)
     street = models.CharField(primary_key=True, max_length=120)
     town = models.CharField(max_length=45, blank=True, null=True)
     zip = models.IntegerField()
